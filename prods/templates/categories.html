@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <td>Category Id</td>
+            <td>Category Name</td>
+            <td>Delete</td>
+            <td>Update</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+        <tr>
+            <td>{{category.c_id}}</td>
+            <td>{{category.c_name}}</td>
+            <td><a href="{% url 'delete_category' category.c_id %}">Delete Category</a></td>
+            <td><a href="{% url 'update_category' category.c_id %}">Update Category</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

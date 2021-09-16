@@ -1,0 +1,35 @@
+{%extends 'base.html' %}
+{% block content %}
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+{% load static %}
+<br><br><br><br><br><br>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Img</th>
+        <th>Category</th>
+        {% if user.is_superuser %}<th>Options</th>{% endif %}
+    </tr>
+    {% for product in products %}
+    <tr >
+        <td>{{product.p_name}}</td>
+        <td>{{product.p_price}}</td>
+        {% if product.p_img %}
+            <td><a href="{{product.p_img.url}}" target="_Blank"><img src="{{product.p_img.url}}" alt="no image"></a></td>
+        {% else %}
+            <span>No Image</span>
+        {% endif %}
+        <td>{% if product.p_category.c_name %} {{product.p_category.c_name}} {% else %}No Category {% endif %}</td>
+        {% if user.is_superuser %}
+        <td>
+            <a href="{% url 'delete_product' product.p_id %}">Delete</a>
+            <a href="{% url 'update_product' product.p_id %}">Update</a>
+        </td>
+        {% endif %}
+    </tr>
+    {%endfor%}
+</table>
+
+{% endblock %}

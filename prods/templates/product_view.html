@@ -1,0 +1,49 @@
+{%extends 'base.html' %} 
+{% block content %}
+<!-- {% load static %} <link rel="stylesheet" href="{% static 'css/n.css' %}"> -->
+<table>
+    {%csrf_token%}
+    {% for prod in prodcuts %}
+    <tr id = "{{prod.p_id}}">
+        <td>{{prod.p_name}}</td>
+        <td>{{prod.p_price}}</td>
+        <td><input type="checkbox" name="product_id[]" id="delete_product" value="{{prod.p_id}}"></td>
+    </tr>
+    {%endfor%}
+</table>
+<button type="submit" id='delete_btn' class="btn_delete">delete</button>
+<script> src= "https://code.jquery.com/jquery-2.2.4.min.js" </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#delete_btn').click(function(){
+            if(confirm('Are You Sure You Want To Delete ?')){
+                var id = [];
+                var csrf=$('input[name=csrfmiddlewaretoken]').val();
+                $(':checkbox:checked').each(function(i){
+                    id[i]=$(this).val()
+                })
+                if(id.length===0){
+                    alert('Please Select Items To Delete')
+                }else{
+                    console.log(id)
+                    $.ajax({
+                        url:'product_view',
+                        method:'POST',
+                        data:{
+                            id,
+                            csrfmiddlewaretoken:csrf
+                        },
+                        success:function(response){
+                            for(var i=0; i<id.length; i++){
+                                $('tr#'+id[i]+'').css('background-color','#ccc');
+                                $('tr#'+id[i]+'').fadeOut('slow');
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    })
+</script>
+{% endblock %}

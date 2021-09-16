@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&family=Glory:wght@100&display=swap" rel="stylesheet">
+    {% load static %} <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% load static %} <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+</head>
+<body>
+  <div class="header">
+    <nav>
+        <div class="social-m-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="container">
+          <div class="header-icons-cont">
+            <div class="account-icon-cont">
+              <a href="{% url 'profile' %}" class="account-icon"><i class="fas fa-user-circle "></i></a>
+            </div>
+            <div class="search-box">
+            <input type="text"  placeholder="Search..." name = "the_keyword" class="search-txt"> <!-- <form action="" method="POST"> {% csrf_token %} </form> -->
+            <a  href="{% url 'search_fun' %}" class="search-btn"> <i class="fas fa-search"></i> <!--  -->
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="menu">
+        <div class="logo">
+          <a href="{% url 'home' %}"><img src="{% static 'imgs/logo.png'%}" alt="none"></a>
+        </div>
+        <div class="container">
+          <div class="menu-home"><a href="{% url 'home' %}">الرئيسيه</a></div>
+          <div class="menu-lists">
+            {% if user.is_superuser %}
+            <div class="menu-ul">
+              <a href="#"> اكتب هنا</a>
+              <div class="menu-ul-div">
+                <ul >
+                  <li><a href="{% url 'product' %}">Products</a></li>
+                  <li><a href="{% url 'add_product' %}">Add Product</a></li>
+                  <li><a href="{% url 'category' %}">Category</a></li>
+                  <li><a href="{% url 'add_category' %}">Add Category</a></li>
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+            <div class="menu-ul">
+              <a href="#"> الأقسام</a>
+              <div class="menu-ul-div">
+                <ul >
+                  <li><a href="#">link one</a></li>
+                  <li><a href="#">link two</a></li>
+                  <li><a href="#">link three</a></li>
+                  <li><a href="#">link four</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+  </nav>
+  </div>
+      {% block content %}
+      {% endblock %}
+</body>
+</html>

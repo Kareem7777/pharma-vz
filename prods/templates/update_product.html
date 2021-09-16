@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="POST">
+{% csrf_token %}
+<input type="text"  name="p_id" value="{{updated_product.p_id}}">
+<input type="text"  name="p_name" value="{{updated_product.p_name}}">
+<input type="text"  name="p_description" value="{{updated_product.p_description}}">
+<input type="text"  name="p_price" value="{{updated_product.p_price}}"><br>
+<select name="p_category">
+    {% for category in categories %}
+    <option selected value="{{category.c_id}}">{{category.c_name}}</option>
+    {% endfor %}
+</select>
+<button type="submit">Update</button>
+</form>
+{% endblock %}

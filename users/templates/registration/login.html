@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<h1> system login </h1>
+<form method = "POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button> login </button>
+</form>
+<label for="regbut">Don't Have Account</label>
+<button id="regbut"><a href="{% url 'register_url' %}">register</a></button>
+
+	
+{% endblock %}

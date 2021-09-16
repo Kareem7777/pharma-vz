@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="POST">
+{% csrf_token %}
+<input type="text" value="{{updated_category.c_id}}" name="c_id" >
+<input type="text"  name="c_name" value="{{updated_category.c_name}}">
+<button type="submit">Update</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+
+{% block content %}
+<form action="" method="POST">
+    {%csrf_token%}
+
+    {{form.as_p}}
+
+    <input type="submit" name = 'save&detail' class="btn btn-success" >detail
+    <input type="submit" name = 'save&home' class="btn btn-success" >home
+    <input type="submit" name = 'save&master' class="btn btn-success" >master again
+
+</form>
+{% endblock %}
