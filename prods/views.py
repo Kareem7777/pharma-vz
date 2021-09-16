@@ -120,7 +120,7 @@ def update_category(request,id):
         }
     return render (request,'update_category.html',context)
 
-#####################################################################################################################################
+#########################################################################################################################################
 def add_master_me(request):
     form=add_master_me_form(request.POST or None )
     if request.POST.get("save&detail"):
