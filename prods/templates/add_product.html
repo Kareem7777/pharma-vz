@@ -1,7 +1,5 @@
 {%extends 'base.html' %}
 {% block content %}
-
-    <!-- <h1 class="addprod-h1">Add New Products</h1> -->
     <form enctype="multipart/form-data" method="POST" class="add-form" >
         {% csrf_token %}
         <div class="input-div">
@@ -39,5 +37,4 @@
             <button class="sub-btn" type="submit" formaction="{% url 'add_product' %}">Submit</button>
         </div>
     </form>
-    
 {% endblock %}
