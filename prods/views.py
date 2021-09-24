@@ -121,50 +121,6 @@ def update_category(request,id):
     return render (request,'update_category.html',context)
 
 #########################################################################################################################################
-def add_master_me(request):
-    form=add_master_me_form(request.POST or None )
-    if request.POST.get("save&detail"):
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('add_detail_me'))
-
-    elif request.POST.get("save&home"):
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('home'))        
-
-    elif request.POST.get("save&master"):
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('add_master_me'))   
-
-    context={
-        'form':form,
-
-    }
-
-
-    return render(request,"add_master_me.html",context)
-
-
-def add_detail_me(request):
-    x=categories.objects.latest('c_id')
-    j=x.c_id
-
-    form=add_detail_me_form(request.POST or None ,initial={'p_category':j})
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('add_detail_me'))
-
-    context={
-        'form':form,
-        'j':j,
-        'x':x,
-    }
-
-
-    return render(request,"add_detail_me.html",context)
-
 
 
 

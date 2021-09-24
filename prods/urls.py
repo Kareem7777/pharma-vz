@@ -17,8 +17,6 @@ urlpatterns=[
     path('profile',profile,name = 'profile'),
     path('search',search_fun,name = 'search_fun'),#/<the_keyword>
     path('product_view',product_view.as_view(),name='product_view'),
-    path('add_master_me',add_master_me,name='add_master_me'),
-    path('add_detail_me',add_detail_me,name='add_detail_me'),
 #    path('checkboxes',checkboxes,name='checkboxes1'),
 #    path('filer/<teto>',filer,name='filer1'),
 
