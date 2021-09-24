@@ -120,6 +120,77 @@ def update_category(request,id):
         }
     return render (request,'update_category.html',context)
 
+def specialties_list(request):
+    title = 'Specialties'
+    listed_specialties = specialties.objects.all()
+    context = {
+        'title': title,
+        'specialties':listed_specialties,
+    }
+    return render(request,'specialties_list.html',context)
+
+def add_specialty(request):
+    title = 'Add Specialty'
+    if request.method == "POST":
+        new_specialty = add_specialtyForm(request.POST)
+        if new_specialty.is_valid():
+            new_specialty.save()
+            return redirect('specialties_list')
+    else:
+        new_specialty = add_specialtyForm
+    context = {
+        'title':title,
+    }
+    return render (request,'add_specialty.html',context)
+
+def countries_list(request):
+    title = 'Countries'
+    listed_countries = countries.objects.all()
+    context = {
+        'title': title,
+        'countries':listed_countries,
+    }
+    return render(request,'countries_list.html',context)
+
+def add_country(request):
+    title = 'Add Country'
+    if request.method == "POST":
+        new_country = add_countryForm(request.POST)
+        if new_country.is_valid():
+            new_country.save()
+            return redirect('countries_list')
+    else:
+        new_country = add_countryForm
+    context = {
+        'title':title,
+    }
+    return render (request,'add_country.html',context)
+
+def regions_list(request):
+    title = 'Regions'
+    listed_regions = regions.objects.all()
+    context = {
+        'title': title,
+        'regions':listed_regions,
+    }
+    return render(request,'regions_list.html',context)
+
+def add_region(request):
+    title = 'Add Region'
+    countries_holder = countries.objects.all()
+    if request.method == "POST":
+        new_region = add_regionForm(request.POST)
+        if new_region.is_valid():
+            new_region.save()
+            return redirect('regions_list')
+    else:
+        new_region = add_regionForm
+    context = {
+        'title':title,
+        'countries':countries_holder,
+    }
+    return render (request,'add_region.html',context)
+    
 #########################################################################################################################################
 
 

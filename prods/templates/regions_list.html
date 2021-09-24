@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%block content%}
+<table>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>country</td>
+    </tr>
+    {%for i in regions%}
+    <tr>
+        <td>{{i.regions_id}}</td>
+        <td>{{i.regions_name}}</td>
+        <td>{{i.regions_f_countries.countries_name}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+
+
+
+{%endblock%}

@@ -13,10 +13,17 @@ urlpatterns=[
     path('add/category',add_category,name='add_category'),
     path('delete/category/<int:id>',delete_category,name = 'delete_category'),
     path('update/category/<int:id>',update_category,name = 'update_category'),
+    path('specialties_list',specialties_list,name = 'specialties_list'),
+    path('countries_list',countries_list,name = 'countries_list'),
+    path('regions_list',regions_list,name = 'regions_list'),
+    path('add_specialty',add_specialty,name = 'add_specialty'),
+    path('add_country',add_country,name = 'add_country'),
+    path('add_region',add_region,name = 'add_region'),
     ####################################################################################################
     path('profile',profile,name = 'profile'),
     path('search',search_fun,name = 'search_fun'),#/<the_keyword>
     path('product_view',product_view.as_view(),name='product_view'),
+
 #    path('checkboxes',checkboxes,name='checkboxes1'),
 #    path('filer/<teto>',filer,name='filer1'),
 

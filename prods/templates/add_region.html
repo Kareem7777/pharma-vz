@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="POST" class="cat-form">
+{% csrf_token %}
+<div class="input-div-cat">
+    <input type="text" placeholder="Region Id" name="regions_id" class="input-col">
+    <span class="focus-border"></span>
+</div>
+<div  class="input-div-cat">
+    <input type="text" placeholder="Region Name" name="regions_name" class="input-col">
+    <span class="focus-border"></span>
+</div>
+<div class="input-div">
+    <select id="inputGroupSelect01" name="regions_f_countries" class="select-input">
+        <option class="select-option" selected>Country</option>
+        {% for country in countries %}
+        <option value="{{country.countries_id}}">{{country.countries_name}}</option>
+        {% endfor %}
+    </select>
+    <span class="focus-border"></span>
+</div>   
+
+<!-- <div  class="input-div-cat">
+    <input type="text" placeholder="Choose Country" name="regions_f_countries" class="input-col">
+    <span class="focus-border"></span>
+</div> -->
+<div class="submit-div">
+    <button type="submit" class="sub-btn-cat">Submit</button>
+</div>
+</form>
+{% endblock %}

@@ -44,9 +44,10 @@
               <div class="menu-ul-div">
                 <ul >
                   <li><a href="{% url 'product' %}">Products</a></li>
-                  <li><a href="{% url 'add_product' %}">Add Product</a></li>
                   <li><a href="{% url 'category' %}">Category</a></li>
-                  <li><a href="{% url 'add_category' %}">Add Category</a></li>
+                  <li><a href="{% url 'specialties_list' %}">Specialties</a></li>
+                  <li><a href="{% url 'regions_list' %}">Regions</a></li>
+                  <li><a href="{% url 'countries_list' %}">Countries</a></li>
                 </ul>
               </div>
             </div>
@@ -54,11 +55,12 @@
             <div class="menu-ul">
               <a href="#"> الأقسام</a>
               <div class="menu-ul-div">
-                <ul >
-                  <li><a href="#">link one</a></li>
-                  <li><a href="#">link two</a></li>
-                  <li><a href="#">link three</a></li>
-                  <li><a href="#">link four</a></li>
+                <ul>
+                  <li><a href="{% url 'add_product' %}">Add Product</a></li>
+                  <li><a href="{% url 'add_category' %}">Add Category</a></li>
+                  <li><a href="{% url 'add_country' %}">Add country</a></li>
+                  <li><a href="{% url 'add_region' %}">Add region</a></li>
+                  <li><a href="{% url 'add_specialty' %}">Add Specialty</a></li>
                 </ul>
               </div>
             </div>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="POST" class="cat-form">
+{% csrf_token %}
+<div class="input-div-cat">
+    <input type="text" placeholder="Specialty Id" name="specialties_id" class="input-col">
+    <span class="focus-border"></span>
+</div>
+<div  class="input-div-cat">
+    <input type="text" placeholder="Specialty Name" name="specialties_name" class="input-col">
+    <span class="focus-border"></span>
+</div>
+<div class="submit-div">
+    <button type="submit" class="sub-btn-cat">Submit</button>
+</div>
+</form>
+{% endblock %}

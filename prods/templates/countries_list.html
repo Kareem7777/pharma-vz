@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{%block content%}
+<table>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+    </tr>
+    {%for i in countries%}
+    <tr>
+        <td>{{i.countries_id}}</td>
+        <td>{{i.countries_name}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+
+
+
+{%endblock%}
