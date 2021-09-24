@@ -20,3 +20,21 @@ class products (models.Model):
     def delete(self,*args,**kwargs):
         self.p_img.delete()
         super().delete(*args,**kwargs)
+############################################################
+class specialties (models.Model):
+    specialties_id = models.CharField(primary_key=True,max_length=300,null=False)
+    specialties_name = models.CharField(max_length=400,null=False)
+
+class countries (models.Model):
+    countries_id = models.CharField(primary_key=True,max_length=300,null=False)
+    countries_name = models.CharField(max_length=400,null=False)
+
+class regions (models.Model):
+    regions_id = models.CharField(primary_key=True,max_length=300,null=False)
+    regions_name = models.CharField(max_length=400,null=False)
+    regions_f_countries= models.ForeignKey(countries,on_delete=models.SET_NULL,null=True,blank=True)
+
+
+
+
+
